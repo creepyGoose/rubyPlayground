@@ -1,6 +1,6 @@
 users = Hash.new
 
-def add() 
+def add(users) 
   puts "Digite seu username"
   k = gets.chomp
   puts "Digite sua senha"
@@ -33,7 +33,7 @@ def home()
  puts '1 - Login | 2 - Registrar | 3 - Listar Usuários'
  r = gets.chomp.to_i
  if (r == 2)   
-  add()
+  add(users)
  elsif r == 1
    login()
  end
