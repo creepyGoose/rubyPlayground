@@ -8,7 +8,7 @@ class Student
     end
 
     def imprimindo      
-     $a.push(self.first_name) # colocar comando de adicionar
+     $a.push(self.first_name) 
      47.times { print '-' }
      puts
      puts "LISTA DE NOMES"
