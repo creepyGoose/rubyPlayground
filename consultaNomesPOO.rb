@@ -22,8 +22,7 @@ class Student
     break if r != 's'
     if (r == 's')
       puts "Digite seu nome"
-      nome = gets.chomp 
-      puts "Digite seu sobrenome"     
+      nome = gets.chomp    
       aluno = Student.new(nome)
       puts aluno.imprimindo
     end
