@@ -1,4 +1,5 @@
 require 'bcrypt'
+require 'io/console'
 
 $users = {}
  
@@ -11,7 +12,7 @@ class RegistroCadastro
    puts "Digite seu username"
    k = gets.chomp
    puts "Digite sua senha"
-   v = gets.chomp   
+   v = STDIN.noecho(&:gets)   
    v = criptografiaSenha(v)   
    $users.store(k, v)
    home()  
@@ -23,7 +24,7 @@ class RegistroCadastro
      puts "Digite seu username"
      k = gets.chomp
      puts "Digite sua senha"
-     v = gets.chomp    
+     v = STDIN.noecho(&:gets)    
      if ($users.has_key?(k) and $users.has_value?(v))
        puts 'Usuário Autenticado'
        x = false
