@@ -7,8 +7,7 @@ class RegistroCadastro
     BCrypt::Password.create(senha)
   end
   
-
- def add
+  def add
    puts "Digite seu username"
    k = gets.chomp
    puts "Digite sua senha"
@@ -56,9 +55,9 @@ def home()
  if (r == 2)   
   RegistroCadastro.add
  elsif (r == 1)
-   RegistroCadastro.login
-   elsif (r == 3)
-    list()
+  RegistroCadastro.login
+ elsif (r == 3)
+  list()
  end
 end
 
