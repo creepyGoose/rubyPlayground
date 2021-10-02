@@ -1,11 +1,19 @@
+require 'bcrypt'
+
 $users = {}
  
-class RegistroCadastro
+class RegistroCadastro  
+  def criptografiaSenha(senha)
+    BCrypt::Password.create(senha)
+  end
+  
+
  def add
    puts "Digite seu username"
    k = gets.chomp
    puts "Digite sua senha"
-   v = gets.chomp    
+   v = gets.chomp   
+   v = criptografiaSenha(v)   
    $users.store(k, v)
    home()  
  end
@@ -37,6 +45,7 @@ def list
   puts
   home()
 end
+
 
 def home()
  puts "Bem-vindo ao Autenticador"
