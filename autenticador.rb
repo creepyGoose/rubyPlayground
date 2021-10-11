@@ -5,7 +5,7 @@ $users = {}
  
 class RegistroCadastro  
   def criptografiaSenha(senha)
-    BCrypt::Password.create(senha)
+   BCrypt::Password.create(senha)
   end
   
   def add
@@ -18,6 +18,11 @@ class RegistroCadastro
    home()  
  end
 
+ def delete
+  login()
+  if login()
+    $users.except()
+
  def login
     x = true  
     while x do
@@ -28,6 +33,7 @@ class RegistroCadastro
      if ($users.has_key?(k) and $users.has_value?(v))
        puts 'Usuário Autenticado'
        x = false
+       return true
      else 
       puts 'FALHA AO AUTENTICAR, TENTE NOVAMENTE'
       puts
@@ -51,7 +57,7 @@ def home()
  puts "Bem-vindo ao Autenticador"
  47.times { print '-' }
  puts
- puts '1 - Login | 2 - Registrar | 3 - Listar Usuários'
+ puts '1 - Login | 2 - Registrar | 3 - Listar Usuários | 4 - Excluir Usuário'
  r = gets.chomp.to_i
  if (r == 2)   
   RegistroCadastro.add
@@ -59,6 +65,8 @@ def home()
   RegistroCadastro.login
  elsif (r == 3)
   list()
+ elsif (r == 4)
+  delete()
  end
 end
 
